@@ -1,1 +1,49 @@
-(()=>{"use strict";const e=(e,t,d,l)=>{const n=document.createElement(e);return t&&(n.id=t),d&&d.forEach((e=>n.classList.add(e))),l&&(n.innerText=l),n},t=()=>Math.random().toString().split(".").join(""),d=document.querySelector("#folders .card");class l{constructor(e){this.title=e,this.id=t(),this.tasks=[]}render(){const t=e("div",this.id,["folder"],null),l=e("p",null,null,this.title),n=e("img",null,["del"],null);n.src="./img/del.svg",n.addEventListener("click",(()=>{this.del()})),t.appendChild(l),t.appendChild(n),d.appendChild(t),t.addEventListener("click",(()=>{s=this,s.active=!1,this.renderTasks(),this.addDelButton(),t.classList.value.includes("active")||(t.classList.add("active"),n.src="./img/del.svg")}))}addDelButton(){document.querySelectorAll(".folder").forEach((e=>e.classList.value="folder")),document.querySelectorAll(".del").forEach((e=>e.src="./img/del.svg"))}del(){n=n.filter((e=>e.id!==this.id)),l.renderFolders()}renderTasks(){document.querySelector("#task-container").innerHTML="",this.tasks.forEach((e=>e.render()))}static renderFolders(){d.innerHTML="",n.forEach((e=>e.render()))}static setCurrentFolder(e){s=e}}let n=[],s=n[0];const i=document.querySelector("#task-container");class a{constructor(e,d,l){this.name=e,this.date=d,this.priority=l,this.id=t()}render(){const t=e("div",this.id,["task"],null),d=e("div",null,["task-name"],null),l=e("input",null,["checkbox"],null);l.type="checkbox";const n=e("p",null,null,this.name),s=e("div",null,["task-info"],null),a=e("p",null,null,this.date),r=e("div",null,["badge"],this.priority),o=e("img",null,["del"],null);o.src="./img/del.svg";const c=e("img",null,["edit"],null);c.src="./img/edit.svg",c.addEventListener("click",(()=>{this.edit()})),d.appendChild(l),d.appendChild(n),s.appendChild(a),s.appendChild(r),s.appendChild(o),s.appendChild(c),t.appendChild(d),t.appendChild(s),i.appendChild(t),l.addEventListener("change",(()=>{n.classList.toggle("done")})),"high"===this.priority&&r.classList.add("high"),o.addEventListener("click",(()=>{this.del()}))}del(){s.tasks=s.tasks.filter((e=>e.id!==this.id)),s.renderTasks()}edit(){const e=document.getElementById("my-modal");e.style.display="flex",document.getElementById("form-task-edit").addEventListener("submit",(t=>{t.preventDefault();const d=document.getElementById("task-name-edit");if(""===d.value)return void alert("The task must have a name");const l=document.getElementById("task-date-edit");if(""===l.value)return void alert("Please choose a deadline");const n=document.getElementById("task-priority-edit");this.name=d.value,this.date=l.value,this.priority=n.value,e.style.display="none",s.renderTasks()}))}}document.getElementById("form-folder").addEventListener("submit",(e=>{e.preventDefault();const t=document.getElementById("folder-name");if(""===t.value)return void alert("The folder must have a name");const d=new l(t.value);n.push(d),t.value="",l.renderFolders(),l.setCurrentFolder(d);let s=document.querySelectorAll(".folder");s[s.length-1].classList.add("active"),s[s.length-1].lastChild.src="./img/del.svg"})),document.getElementById("form-task").addEventListener("submit",(e=>{e.preventDefault();const t=document.getElementById("task-name");if(""===t.value)return void alert("The task must have a name");const d=document.getElementById("task-date");if(""===d.value)return void alert("Please choose a deadline");const l=document.getElementById("task-priority"),n=new a(t.value,d.value,l.value);s.tasks.push(n),n.render()})),l.renderFolders()})();
+(() => {
+  var e = { 69: () => {} },
+    t = {};
+  function o(r) {
+    var n = t[r];
+    if (void 0 !== n) return n.exports;
+    var l = (t[r] = { exports: {} });
+    return e[r](l, l.exports, o), l.exports;
+  }
+  (o.n = (e) => {
+    var t = e && e.__esModule ? () => e.default : () => e;
+    return o.d(t, { a: t }), t;
+  }),
+    (o.d = (e, t) => {
+      for (var r in t)
+        o.o(t, r) &&
+          !o.o(e, r) &&
+          Object.defineProperty(e, r, { enumerable: !0, get: t[r] });
+    }),
+    (o.o = (e, t) => Object.prototype.hasOwnProperty.call(e, t)),
+    (() => {
+      "use strict";
+      const e = () => {
+        console.log("creating blank project");
+        let e = [],
+          t = "Default Project";
+        return (
+          e.push({ projectTitle: t }),
+          console.log(e),
+          { projectList: e, projectTitle: t }
+        );
+      };
+      var t = o(69),
+        r = o.n(t);
+      e(),
+        (() => {
+          const t = document.querySelector(".content"),
+            o = document.createElement("h1");
+          (o.textContent = "Todo Application"), t.appendChild(o);
+          const r = document.createElement("div");
+          (r.textContent = e().projectTitle),
+            console.log("Inital DOM: This works!"),
+            t.appendChild(r);
+        })(),
+        console.log("Called Todo Module");
+      const n = r()("Pasta", "Go get pasta", "6/15/2022", "Low", !0);
+      console.log("Show me the items of first todo", n);
+    })();
+})();

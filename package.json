@@ -1,0 +1,19 @@
+{
+  "name": "odin-todolist",
+  "version": "1.0.0",
+  "description": "The todo list project is a task management tool that helps you organize your daily activities and keep track of your progress. With this project, you can create a list of tasks, assign deadlines, set priorities, and mark completed tasks.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.76.2",
+    "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "date-fns": "^2.29.3"
+  }
+}
